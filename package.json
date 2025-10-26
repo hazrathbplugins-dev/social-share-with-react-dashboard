@@ -1,0 +1,26 @@
+{
+  "name": "reactive-dashboard",
+  "version": "1.0.0",
+  "description": "A WordPress plugin with a modern React dashboard.",
+  "author": "Your Name",
+  "license": "GPL-2.0-or-later",
+  "main": "build/index.js",
+  "scripts": {
+    "packages-update": "wp-scripts packages-update",
+    "lint:js": "wp-scripts lint-js",
+    "lint:css": "wp-scripts lint-style",
+    "format": "wp-scripts format",
+    "start": "wp-scripts start --webpack-copy-php",
+    "build": "wp-scripts build --webpack-copy-php"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^27.9.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^7.1.0",
+    "@fortawesome/free-brands-svg-icons": "^7.1.0",
+    "@fortawesome/react-fontawesome": "^3.1.0",
+    "react-beautiful-dnd": "^13.1.1",
+    "react-router-dom": "^6.20.1"
+  }
+}
