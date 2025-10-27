@@ -46,6 +46,17 @@ const Preview = ({ settings, setSettings }) => {
     }
   };
 
+  const getIconButtonSize = () => {
+    switch (settings.buttonSize) {
+      case 'small':
+        return { padding: '10px', fontSize: '14px' };
+      case 'large':
+        return { padding: '30px', fontSize: '18px' };
+      default:
+        return { padding: '20px', fontSize: '16px' };
+    }
+  }
+
   const getPlatformIcon = (platform) => {
     switch (platform) {
       case 'facebook':
@@ -69,7 +80,7 @@ const Preview = ({ settings, setSettings }) => {
       case 'icon-text':
         return (
           <>
-            <span className="button-icon">{icon}</span>
+            <span className="button-icon button-icon-text">{icon}</span>
             <span>{text}</span>
           </>
         );
@@ -83,16 +94,19 @@ const Preview = ({ settings, setSettings }) => {
 
   return (
     <div className="live-preview">
-      <h2>Live Preview</h2>
+      <div className='card-header'>
+        <h2><i class="fa-solid fa-eye"></i>Live Preview</h2>
+      </div>
       <div className="button-preview">
         {settings.platforms.map((platform) => (
           <button
+            className = { settings.buttonType == 'icon' ? 'icon-only':'text-button'}
             key={platform}
             style={{
               backgroundColor: settings.buttonColor,
               margin: '5px',
               ...getButtonStyle(),
-              ...getButtonSize(),
+              ...(settings?.buttonType == 'icon') ? getIconButtonSize() : getButtonSize(),
             }}
           >
             {getButtonContent(platform)}
