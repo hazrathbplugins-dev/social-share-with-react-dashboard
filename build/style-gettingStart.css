@@ -1,10 +1,13 @@
 /*!**********************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/assets/style.scss ***!
   \**********************************************************************************************************************************************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap);
+/*!**************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/assets/style.scss (1) ***!
+  \**************************************************************************************************************************************************************************************************************************************************/
 /* This file contains the styles for the dashboard and its components */
 body {
   margin: 0;
-  font-family: "Arial", sans-serif;
   background-color: #f4f4f4;
 }
 
@@ -12,33 +15,89 @@ body {
   padding: 20px;
 }
 
+.dashboard-wrapper {
+  font-family: "Space Grotesk", sans-serif;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.dashboard-wrapper .dashboard-header {
+  border-bottom: 1px solid #006A67;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 20px 40px;
+}
+.dashboard-wrapper .dashboard-header .icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: #006A67;
+}
+.dashboard-wrapper .dashboard-header .icon-wrapper i {
+  font-size: 16px;
+  line-height: 1.2;
+  color: #fff;
+}
+.dashboard-wrapper .dashboard-header h2 {
+  font-size: 32px;
+  line-height: 1.2;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
 .container-area {
   display: flex;
+  padding: 40px;
+}
+.container-area .card-header {
+  background: #006A67;
+  padding: 15px 30px;
+  border-radius: 8px 8px 0 0;
+}
+.container-area .card-header h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 26px;
+  line-height: 1.2;
+  font-weight: 500;
+  margin: 0;
+  color: #fff;
+}
+.container-area .card-header h2 i {
+  margin-right: 8px;
 }
 
 .customization-area {
   width: 65%;
-  padding: 20px;
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+.customization-area .customizatiom-form-area {
+  padding: 15px 30px 30px;
+}
 
 .preview-area {
   width: 35%;
-  padding: 20px;
   margin-left: 20px;
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
-
-h1 {
-  color: #3498db;
+.preview-area .button-preview {
+  padding: 15px 30px;
 }
 
 button {
-  background-color: #3498db;
+  background-color: #006A67;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
   color: white;
   border: none;
   border-radius: 5px;
@@ -47,7 +106,7 @@ button {
   transition: background-color 0.3s;
 }
 button:hover {
-  background-color: rgb(33.1380753138, 125.1882845188, 186.8619246862);
+  background-color: rgb(0, 55, 53.4433962264);
 }
 
 .color-picker {
@@ -88,6 +147,9 @@ button:hover {
   border-radius: 4px;
 }
 .customization .platform-item {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
   padding: 10px;
   margin-bottom: 5px;
   background: #fff;
@@ -105,27 +167,20 @@ button:hover {
   margin-bottom: 20px;
 }
 .customization .form-group label {
+  font-size: 18px;
+  line-height: 28px;
   display: block;
   margin-bottom: 5px;
-  font-weight: bold;
+  font-weight: 500;
 }
-.customization .form-group select,
-.customization .form-group input[type=color] {
+.customization .form-group select {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
   width: 100%;
   padding: 8px;
   border-radius: 4px;
   border: 1px solid #ddd;
-}
-.customization .form-group button {
-  padding: 10px 20px;
-  background: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-.customization .form-group button:hover {
-  background: #0056b3;
 }
 .customization .button-type-options {
   display: flex;
@@ -135,6 +190,9 @@ button:hover {
 .customization .button-type-option {
   padding: 10px 15px;
   border: 1px solid #ddd;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
   border-radius: 4px;
   background: #fff;
   cursor: pointer;
@@ -147,9 +205,9 @@ button:hover {
   background: #f0f0f0;
 }
 .customization .button-type-option.selected {
-  border-color: #007bff;
+  border-color: #006A67;
   background: #e6f3ff;
-  color: #007bff;
+  color: #006A67;
 }
 .customization .button-type-option .button-icon {
   font-size: 1.2em;
@@ -170,6 +228,8 @@ button:hover {
 }
 .live-preview .button-preview button .button-icon {
   font-size: 1.2em;
+}
+.live-preview .button-preview button .button-icon-text {
   margin-right: 8px;
 }
 .live-preview .button-preview p {

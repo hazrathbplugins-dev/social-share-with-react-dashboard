@@ -22601,10 +22601,17 @@ function App() {
     buttonColor: '#007bff',
     buttonSize: 'medium'
   });
-  console.log(settings);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "App"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "dashboard-wrapper"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "dashboard-header"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "icon-wrapper"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+    class: "fa-solid fa-share"
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "Social Share Dashboard")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "container-area"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "customization-area"
@@ -22616,7 +22623,7 @@ function App() {
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Preview__WEBPACK_IMPORTED_MODULE_3__["default"], {
     settings: settings,
     setSettings: setSettings
-  }))));
+  })))));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
 
@@ -22731,7 +22738,13 @@ const Customization = ({
   };
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "customization"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "Customize Social Share Buttons"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "card-header"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+    class: "fa-regular fa-pen-to-square"
+  }), "Customize Social Share Buttons")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "customizatiom-form-area"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "form-group"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Drag Platforms to Select and Reorder:"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_beautiful_dnd__WEBPACK_IMPORTED_MODULE_1__.DragDropContext, {
     onDragEnd: onDragEnd
@@ -22817,7 +22830,7 @@ const Customization = ({
     value: "large"
   }, "Large"))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     onClick: saveSettings
-  }, "Save Settings"));
+  }, "Save Settings")));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Customization);
 
@@ -22898,6 +22911,25 @@ const Preview = ({
         };
     }
   };
+  const getIconButtonSize = () => {
+    switch (settings.buttonSize) {
+      case 'small':
+        return {
+          padding: '10px',
+          fontSize: '14px'
+        };
+      case 'large':
+        return {
+          padding: '30px',
+          fontSize: '18px'
+        };
+      default:
+        return {
+          padding: '20px',
+          fontSize: '16px'
+        };
+    }
+  };
   const getPlatformIcon = platform => {
     switch (platform) {
       case 'facebook':
@@ -22926,7 +22958,7 @@ const Preview = ({
     switch (settings.buttonType) {
       case 'icon-text':
         return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-          className: "button-icon"
+          className: "button-icon button-icon-text"
         }, icon), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, text));
       case 'icon':
         return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
@@ -22939,15 +22971,20 @@ const Preview = ({
   };
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "live-preview"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "Live Preview"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "card-header"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+    class: "fa-solid fa-eye"
+  }), "Live Preview")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "button-preview"
   }, settings.platforms.map(platform => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    className: settings.buttonType == 'icon' ? 'icon-only' : 'text-button',
     key: platform,
     style: {
       backgroundColor: settings.buttonColor,
       margin: '5px',
       ...getButtonStyle(),
-      ...getButtonSize()
+      ...(settings?.buttonType == 'icon' ? getIconButtonSize() : getButtonSize())
     }
   }, getButtonContent(platform)))));
 };
