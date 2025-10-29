@@ -28,17 +28,11 @@ class SocialShare {
         $settings = get_option('social_share_settings', [
             'platforms' => ['facebook', 'twitter', 'linkedin'],
             'buttonStyle' => 'square',
-<<<<<<< HEAD
             'buttonBgColor' => '#007bff',
             'buttonColor'=> '#ffffff',
             'buttonSize' => 'medium',
             'buttonType' => 'text',
             'buttonLayout'=> 'horizontal'
-=======
-            'buttonColor' => '#007bff',
-            'buttonSize' => 'medium',
-            'buttonType' => 'text', // New default
->>>>>>> fa84eb57c53eeb797adaa44c5e58d7df90c2fbb3
         ]);
 
         $styles = '';
@@ -63,7 +57,6 @@ class SocialShare {
             default:
                 $styles .= 'padding: 10px 20px; font-size: 16px;';
         }
-<<<<<<< HEAD
         $dir_style ='';
         switch ($settings['buttonLayout']) {
             case 'horizontal':
@@ -75,8 +68,6 @@ class SocialShare {
             default:
                 $dir_style .= 'flex-direction: row;';
         }
-=======
->>>>>>> fa84eb57c53eeb797adaa44c5e58d7df90c2fbb3
 
         // Map platforms to icons (replace with real icons in production)
         $icons = [
@@ -86,7 +77,6 @@ class SocialShare {
             'pinterest' => '<i class="fa-brands fa-pinterest"></i>',
         ];
 
-<<<<<<< HEAD
         $output = '<div class="social-share-buttons" style="display: flex; gap: 10px;' . $dir_style. '">';
         foreach ($settings['platforms'] as $platform) {
            $url = esc_url(get_permalink());
@@ -112,12 +102,6 @@ class SocialShare {
             }
         } else {
             // Fallback without thumbnail-specific params
-=======
-        $output = '<div class="social-share-buttons" style="display: flex; gap: 10px;">';
-        foreach ($settings['platforms'] as $platform) {
-            $url = esc_url(get_permalink());
-            $share_url = '';
->>>>>>> fa84eb57c53eeb797adaa44c5e58d7df90c2fbb3
             switch ($platform) {
                 case 'facebook':
                     $share_url = "https://www.facebook.com/sharer/sharer.php?u=$url";
@@ -132,7 +116,6 @@ class SocialShare {
                     $share_url = "https://pinterest.com/pin/create/button/?url=$url";
                     break;
             }
-<<<<<<< HEAD
         }
 
         // Build full share URL with any extra params
@@ -155,26 +138,6 @@ class SocialShare {
         }
 
             $output .= "<a href='$share_url' target='_blank' style='background-color: {$settings['buttonBgColor']}; color: {$settings['buttonColor']}; $styles width: fit-content; margin: 5px; display: inline-flex; align-items: center; text-decoration: none;'>$content</a>";
-=======
-
-            $text = 'Share on ' . ucfirst($platform);
-            $icon = isset($icons[$platform]) ? $icons[$platform] : '';
-            $content = '';
-            switch ($settings['buttonType']) {
-                case 'icon-text':
-                    $content = "<span style='margin-right: 8px;'>$icon</span><span>$text</span>";
-                    break;
-                case 'icon':
-                    $content = "<span>$icon</span>";
-                    break;
-                case 'text':
-                default:
-                    $content = $text;
-                    break;
-            }
-
-            $output .= "<a href='$share_url' style='background-color: {$settings['buttonColor']}; $styles margin: 5px; display: inline-flex; align-items: center; color: white; text-decoration: none;'>$content</a>";
->>>>>>> fa84eb57c53eeb797adaa44c5e58d7df90c2fbb3
         }
         $output .= '</div>';
 

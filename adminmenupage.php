@@ -23,13 +23,8 @@ class AdminVoiceFeedback {
         // Submenu: Dashboard
         add_submenu_page(
             'reactive-dashboard',
-<<<<<<< HEAD
             'Settings',
             'Settings',
-=======
-            'Demo & Help',
-            'Demo & Help',
->>>>>>> fa84eb57c53eeb797adaa44c5e58d7df90c2fbb3
             'manage_options',
             'reactive-dashboard-settings',
             [$this,'render_dashboard_page']

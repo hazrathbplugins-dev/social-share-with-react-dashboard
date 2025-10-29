@@ -6,5 +6,4 @@ document.addEventListener('DOMContentLoaded', () => {
     if (elementWrapper) {
         createRoot(elementWrapper).render(<App />);
     }
-    console.log(window.socialShareSettings);
 })

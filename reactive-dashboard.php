@@ -4,7 +4,7 @@
  * Plugin URI:  https://example.com/plugins/reactive-dashboard
  * Description: A lightweight reactive dashboard plugin for WordPress.
  * Version:     0.1.0
- * Author:      Your Name
+ * Author:      Hazrath Ali
  * Author URI:  https://github.com/Hazrath15/
  * Text Domain: reactive-dashboard
  * Domain Path: /languages

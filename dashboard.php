@@ -25,7 +25,6 @@ class DashboardFunction {
         }
         if( $screen === 'reactive-dashboard_page_reactive-dashboard-settings') {
             wp_enqueue_script( 'bptb-admin-setting', plugin_dir_url( __FILE__ ) . 'build/settingPage.js', [ 'react', 'react-dom','wp-util' ], '1.0.0', true );
-<<<<<<< HEAD
             wp_enqueue_style( 'bptb-admin-style', plugin_dir_url( __FILE__ ) . 'build/style-gettingStart.css', [], '1.0.0' );
             wp_enqueue_style( 'bptb-main-style', plugin_dir_url( __FILE__ ) . 'build/settingPage.css', [], '1.0.0' );
             wp_enqueue_style(
@@ -34,8 +33,6 @@ class DashboardFunction {
                 [],
                 '6.4.0'
             );
-=======
->>>>>>> fa84eb57c53eeb797adaa44c5e58d7df90c2fbb3
         }
         
     }
