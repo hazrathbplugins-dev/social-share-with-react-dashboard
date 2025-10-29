@@ -5,10 +5,7 @@ const Customization = ({ settings, setSettings }) => {
     const availablePlatforms = ['facebook', 'twitter', 'linkedin', 'pinterest'].filter(
         (platform) => !settings.platforms.includes(platform)
     );
-<<<<<<< HEAD
     
-=======
->>>>>>> fa84eb57c53eeb797adaa44c5e58d7df90c2fbb3
     // Handle drag end for both selection and reordering
     const onDragEnd = (result) => {
         const { source, destination } = result;
@@ -44,7 +41,6 @@ const Customization = ({ settings, setSettings }) => {
         setSettings((prev) => ({ ...prev, buttonStyle: e.target.value }));
     };
 
-<<<<<<< HEAD
     const handleBgColorChange = (e) => {
         setSettings((prev) => ({ ...prev, buttonBgColor: e.target.value }));
     };
@@ -52,11 +48,6 @@ const Customization = ({ settings, setSettings }) => {
     const handleColorChange = (e) => {
         setSettings((prev) => ({...prev, buttonColor: e.target.value}));
     }
-=======
-    const handleColorChange = (e) => {
-        setSettings((prev) => ({ ...prev, buttonColor: e.target.value }));
-    };
->>>>>>> fa84eb57c53eeb797adaa44c5e58d7df90c2fbb3
 
     const handleSizeChange = (e) => {
         setSettings((prev) => ({ ...prev, buttonSize: e.target.value }));
@@ -66,13 +57,10 @@ const Customization = ({ settings, setSettings }) => {
         setSettings((prev) => ({ ...prev, buttonType: type }));
     };
 
-<<<<<<< HEAD
     const handleButtonLayoutChange = (type) => {
         setSettings((prev) => ({ ...prev, buttonLayout: type }));
     };
 
-=======
->>>>>>> fa84eb57c53eeb797adaa44c5e58d7df90c2fbb3
     const saveSettings = () => {
         // Make an AJAX call to save settings to WordPress
         fetch(ajaxurl, {
@@ -195,7 +183,6 @@ const Customization = ({ settings, setSettings }) => {
                     </div>
                 </div>
                 <div className="form-group">
-<<<<<<< HEAD
                     <label>Button Type:</label>
                     <div className="button-type-options">
                         {['horizontal', 'vertical',].map((type) => (
@@ -221,8 +208,6 @@ const Customization = ({ settings, setSettings }) => {
                     </div>
                 </div>
                 <div className="form-group">
-=======
->>>>>>> fa84eb57c53eeb797adaa44c5e58d7df90c2fbb3
                     <label>Button Style:</label>
                     <select value={settings.buttonStyle} onChange={handleStyleChange}>
                         <option value="square">Square</option>
@@ -231,7 +216,6 @@ const Customization = ({ settings, setSettings }) => {
                     </select>
                 </div>
                 <div className="form-group">
-<<<<<<< HEAD
                     <label>Button Background Color:</label>
                     <input
                         type="color"
@@ -240,8 +224,6 @@ const Customization = ({ settings, setSettings }) => {
                     />
                 </div>
                 <div className="form-group">
-=======
->>>>>>> fa84eb57c53eeb797adaa44c5e58d7df90c2fbb3
                     <label>Button Color:</label>
                     <input
                         type="color"

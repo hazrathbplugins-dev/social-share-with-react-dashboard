@@ -217,7 +217,6 @@ button:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-<<<<<<< HEAD
   width: -moz-fit-content;
   width: fit-content;
 }
@@ -226,8 +225,6 @@ button:hover {
 }
 .live-preview .button-preview.dir-column {
   flex-direction: column;
-=======
->>>>>>> fa84eb57c53eeb797adaa44c5e58d7df90c2fbb3
 }
 .live-preview .button-preview button {
   display: flex;
