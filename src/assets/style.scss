@@ -232,6 +232,7 @@ button {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+<<<<<<< HEAD
     width: fit-content;
     &.dir-row {
       flex-direction: row;
@@ -239,6 +240,9 @@ button {
     &.dir-column {
       flex-direction: column;
     }
+=======
+
+>>>>>>> fa84eb57c53eeb797adaa44c5e58d7df90c2fbb3
     button {
       display: flex;
       align-items: center;

@@ -8,6 +8,7 @@ function App() {
     buttonType: 'text',
     platforms: ['facebook', 'twitter', 'linkedin'],
     buttonStyle: 'square',
+<<<<<<< HEAD
     buttonBgColor: '#007bff',
     buttonColor: '#ffffff',
     buttonSize: 'medium',
@@ -15,6 +16,11 @@ function App() {
     buttonLayout: 'horizontal',
   });
   console.log(settings);
+=======
+    buttonColor: '#007bff',
+    buttonSize: 'medium',
+  });
+>>>>>>> fa84eb57c53eeb797adaa44c5e58d7df90c2fbb3
   
   return (
     <div className="App">
