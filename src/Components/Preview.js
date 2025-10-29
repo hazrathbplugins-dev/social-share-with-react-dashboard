@@ -97,13 +97,14 @@ const Preview = ({ settings, setSettings }) => {
       <div className='card-header'>
         <h2><i class="fa-solid fa-eye"></i>Live Preview</h2>
       </div>
-      <div className="button-preview">
+      <div className={`button-preview ${settings.buttonLayout === 'horizontal'? 'dir-row' : 'dir-column'}`}>
         {settings.platforms.map((platform) => (
           <button
             className = { settings.buttonType == 'icon' ? 'icon-only':'text-button'}
             key={platform}
             style={{
-              backgroundColor: settings.buttonColor,
+              backgroundColor: settings.buttonBgColor,
+              color: settings.buttonColor,
               margin: '5px',
               ...getButtonStyle(),
               ...(settings?.buttonType == 'icon') ? getIconButtonSize() : getButtonSize(),

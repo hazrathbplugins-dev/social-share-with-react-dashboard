@@ -217,6 +217,14 @@ button:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.live-preview .button-preview.dir-row {
+  flex-direction: row;
+}
+.live-preview .button-preview.dir-column {
+  flex-direction: column;
 }
 .live-preview .button-preview button {
   display: flex;

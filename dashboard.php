@@ -25,6 +25,14 @@ class DashboardFunction {
         }
         if( $screen === 'reactive-dashboard_page_reactive-dashboard-settings') {
             wp_enqueue_script( 'bptb-admin-setting', plugin_dir_url( __FILE__ ) . 'build/settingPage.js', [ 'react', 'react-dom','wp-util' ], '1.0.0', true );
+            wp_enqueue_style( 'bptb-admin-style', plugin_dir_url( __FILE__ ) . 'build/style-gettingStart.css', [], '1.0.0' );
+            wp_enqueue_style( 'bptb-main-style', plugin_dir_url( __FILE__ ) . 'build/settingPage.css', [], '1.0.0' );
+            wp_enqueue_style(
+                'font-awesome',
+                'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
+                [],
+                '6.4.0'
+            );
         }
         
     }

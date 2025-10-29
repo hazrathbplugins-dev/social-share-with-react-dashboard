@@ -1,0 +1,17 @@
+/*!**************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/SubmenuPage/main.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************/
+.container-area {
+  gap: 40px;
+}
+
+.setting-page-wrapper {
+  width: 50%;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.setting-page-wrapper .auto-share-setting-area,
+.setting-page-wrapper .display-setting-are {
+  padding: 15px 30px 30px;
+}

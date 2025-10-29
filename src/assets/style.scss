@@ -232,7 +232,13 @@ button {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-
+    width: fit-content;
+    &.dir-row {
+      flex-direction: row;
+    }
+    &.dir-column {
+      flex-direction: column;
+    }
     button {
       display: flex;
       align-items: center;

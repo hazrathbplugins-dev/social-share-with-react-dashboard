@@ -22598,9 +22598,13 @@ function App() {
     buttonType: 'text',
     platforms: ['facebook', 'twitter', 'linkedin'],
     buttonStyle: 'square',
-    buttonColor: '#007bff',
-    buttonSize: 'medium'
+    buttonBgColor: '#007bff',
+    buttonColor: '#ffffff',
+    buttonSize: 'medium',
+    iconSize: '30px',
+    buttonLayout: 'horizontal'
   });
+  console.log(settings);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "App"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -22650,6 +22654,7 @@ const Customization = ({
   setSettings
 }) => {
   const availablePlatforms = ['facebook', 'twitter', 'linkedin', 'pinterest'].filter(platform => !settings.platforms.includes(platform));
+
   // Handle drag end for both selection and reordering
   const onDragEnd = result => {
     const {
@@ -22698,6 +22703,12 @@ const Customization = ({
       buttonStyle: e.target.value
     }));
   };
+  const handleBgColorChange = e => {
+    setSettings(prev => ({
+      ...prev,
+      buttonBgColor: e.target.value
+    }));
+  };
   const handleColorChange = e => {
     setSettings(prev => ({
       ...prev,
@@ -22714,6 +22725,12 @@ const Customization = ({
     setSettings(prev => ({
       ...prev,
       buttonType: type
+    }));
+  };
+  const handleButtonLayoutChange = type => {
+    setSettings(prev => ({
+      ...prev,
+      buttonLayout: type
     }));
   };
   const saveSettings = () => {
@@ -22802,6 +22819,22 @@ const Customization = ({
     className: "fab fa-facebook-f"
   })))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "form-group"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Button Type:"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "button-type-options"
+  }, ['horizontal', 'vertical'].map(type => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    key: type,
+    className: `button-type-option ${settings.buttonLayout === type ? 'selected' : ''}`,
+    onClick: () => handleButtonLayoutChange(type)
+  }, type === 'horizontal' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "button-icon"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+    class: "fa-solid fa-ellipsis"
+  }))), type === 'vertical' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "button-icon"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+    class: "fa-solid fa-ellipsis-vertical"
+  })))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "form-group"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Button Style:"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("select", {
     value: settings.buttonStyle,
     onChange: handleStyleChange
@@ -22812,6 +22845,12 @@ const Customization = ({
   }, "Rounded"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
     value: "circle"
   }, "Circle"))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "form-group"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Button Background Color:"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    type: "color",
+    value: settings.buttonBgColor,
+    onChange: handleBgColorChange
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "form-group"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Button Color:"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
     type: "color",
@@ -22976,12 +23015,13 @@ const Preview = ({
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
     class: "fa-solid fa-eye"
   }), "Live Preview")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "button-preview"
+    className: `button-preview ${settings.buttonLayout === 'horizontal' ? 'dir-row' : 'dir-column'}`
   }, settings.platforms.map(platform => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     className: settings.buttonType == 'icon' ? 'icon-only' : 'text-button',
     key: platform,
     style: {
-      backgroundColor: settings.buttonColor,
+      backgroundColor: settings.buttonBgColor,
+      color: settings.buttonColor,
       margin: '5px',
       ...getButtonStyle(),
       ...(settings?.buttonType == 'icon' ? getIconButtonSize() : getButtonSize())

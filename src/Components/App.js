@@ -8,9 +8,13 @@ function App() {
     buttonType: 'text',
     platforms: ['facebook', 'twitter', 'linkedin'],
     buttonStyle: 'square',
-    buttonColor: '#007bff',
+    buttonBgColor: '#007bff',
+    buttonColor: '#ffffff',
     buttonSize: 'medium',
+    iconSize: '30px',
+    buttonLayout: 'horizontal',
   });
+  console.log(settings);
   
   return (
     <div className="App">

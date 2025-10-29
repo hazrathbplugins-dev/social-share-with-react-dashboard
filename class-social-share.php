@@ -28,9 +28,11 @@ class SocialShare {
         $settings = get_option('social_share_settings', [
             'platforms' => ['facebook', 'twitter', 'linkedin'],
             'buttonStyle' => 'square',
-            'buttonColor' => '#007bff',
+            'buttonBgColor' => '#007bff',
+            'buttonColor'=> '#ffffff',
             'buttonSize' => 'medium',
-            'buttonType' => 'text', // New default
+            'buttonType' => 'text',
+            'buttonLayout'=> 'horizontal'
         ]);
 
         $styles = '';
@@ -55,6 +57,17 @@ class SocialShare {
             default:
                 $styles .= 'padding: 10px 20px; font-size: 16px;';
         }
+        $dir_style ='';
+        switch ($settings['buttonLayout']) {
+            case 'horizontal':
+                $dir_style .= 'flex-direction: row;';
+                break;
+            case 'vertical':
+                $dir_style .= 'flex-direction: column;';
+                break;
+            default:
+                $dir_style .= 'flex-direction: row;';
+        }
 
         // Map platforms to icons (replace with real icons in production)
         $icons = [
@@ -64,10 +77,31 @@ class SocialShare {
             'pinterest' => '<i class="fa-brands fa-pinterest"></i>',
         ];
 
-        $output = '<div class="social-share-buttons" style="display: flex; gap: 10px;">';
+        $output = '<div class="social-share-buttons" style="display: flex; gap: 10px;' . $dir_style. '">';
         foreach ($settings['platforms'] as $platform) {
-            $url = esc_url(get_permalink());
-            $share_url = '';
+           $url = esc_url(get_permalink());
+        $share_url = '';
+        $extra_params = '';
+        if (has_post_thumbnail()) {
+            $image_url = esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large'));
+            $title = esc_attr(get_the_title());
+            $description = esc_attr(wp_strip_all_tags(get_the_excerpt()));
+            switch ($platform) {
+                case 'facebook':
+                    $share_url = "https://www.facebook.com/sharer/sharer.php?u=$url";
+                    break;
+                case 'twitter':
+                    $share_url = "https://twitter.com/intent/tweet?url=$url&text=$title";
+                    break;
+                case 'linkedin':
+                    $share_url = "https://www.linkedin.com/shareArticle?mini=true&url=$url&title=$title&summary=$description";
+                    break;
+                case 'pinterest':
+                    $share_url = "https://pinterest.com/pin/create/button/?url=$url&media=$image_url&description=$description";
+                    break;
+            }
+        } else {
+            // Fallback without thumbnail-specific params
             switch ($platform) {
                 case 'facebook':
                     $share_url = "https://www.facebook.com/sharer/sharer.php?u=$url";
@@ -82,24 +116,28 @@ class SocialShare {
                     $share_url = "https://pinterest.com/pin/create/button/?url=$url";
                     break;
             }
+        }
 
-            $text = 'Share on ' . ucfirst($platform);
-            $icon = isset($icons[$platform]) ? $icons[$platform] : '';
-            $content = '';
-            switch ($settings['buttonType']) {
-                case 'icon-text':
-                    $content = "<span style='margin-right: 8px;'>$icon</span><span>$text</span>";
-                    break;
-                case 'icon':
-                    $content = "<span>$icon</span>";
-                    break;
-                case 'text':
-                default:
-                    $content = $text;
-                    break;
-            }
+        // Build full share URL with any extra params
+        $share_url = $share_url . $extra_params;
 
-            $output .= "<a href='$share_url' style='background-color: {$settings['buttonColor']}; $styles margin: 5px; display: inline-flex; align-items: center; color: white; text-decoration: none;'>$content</a>";
+        $text = 'Share on ' . ucfirst($platform);
+        $icon = isset($icons[$platform]) ? $icons[$platform] : '';
+        $content = '';
+        switch ($settings['buttonType']) {
+            case 'icon-text':
+                $content = "<span style='margin-right: 8px;'>$icon</span><span>$text</span>";
+                break;
+            case 'icon':
+                $content = "<span>$icon</span>";
+                break;
+            case 'text':
+            default:
+                $content = $text;
+                break;
+        }
+
+            $output .= "<a href='$share_url' target='_blank' style='background-color: {$settings['buttonBgColor']}; color: {$settings['buttonColor']}; $styles width: fit-content; margin: 5px; display: inline-flex; align-items: center; text-decoration: none;'>$content</a>";
         }
         $output .= '</div>';
 

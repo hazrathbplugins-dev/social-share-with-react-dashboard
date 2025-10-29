@@ -5,6 +5,7 @@ const Customization = ({ settings, setSettings }) => {
     const availablePlatforms = ['facebook', 'twitter', 'linkedin', 'pinterest'].filter(
         (platform) => !settings.platforms.includes(platform)
     );
+    
     // Handle drag end for both selection and reordering
     const onDragEnd = (result) => {
         const { source, destination } = result;
@@ -40,9 +41,13 @@ const Customization = ({ settings, setSettings }) => {
         setSettings((prev) => ({ ...prev, buttonStyle: e.target.value }));
     };
 
-    const handleColorChange = (e) => {
-        setSettings((prev) => ({ ...prev, buttonColor: e.target.value }));
+    const handleBgColorChange = (e) => {
+        setSettings((prev) => ({ ...prev, buttonBgColor: e.target.value }));
     };
+
+    const handleColorChange = (e) => {
+        setSettings((prev) => ({...prev, buttonColor: e.target.value}));
+    }
 
     const handleSizeChange = (e) => {
         setSettings((prev) => ({ ...prev, buttonSize: e.target.value }));
@@ -50,6 +55,10 @@ const Customization = ({ settings, setSettings }) => {
 
     const handleButtonTypeChange = (type) => {
         setSettings((prev) => ({ ...prev, buttonType: type }));
+    };
+
+    const handleButtonLayoutChange = (type) => {
+        setSettings((prev) => ({ ...prev, buttonLayout: type }));
     };
 
     const saveSettings = () => {
@@ -174,12 +183,45 @@ const Customization = ({ settings, setSettings }) => {
                     </div>
                 </div>
                 <div className="form-group">
+                    <label>Button Type:</label>
+                    <div className="button-type-options">
+                        {['horizontal', 'vertical',].map((type) => (
+                            <div
+                                key={type}
+                                className={`button-type-option ${settings.buttonLayout === type ? 'selected' : ''}`}
+                                onClick={() => handleButtonLayoutChange(type)}
+                            >
+                                {type === 'horizontal' && (
+                                    <>
+                                        <span className="button-icon">
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </span>
+                                    </>
+                                )}
+                                {type === 'vertical' && (
+                                    <span className="button-icon">
+                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    </span>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                <div className="form-group">
                     <label>Button Style:</label>
                     <select value={settings.buttonStyle} onChange={handleStyleChange}>
                         <option value="square">Square</option>
                         <option value="rounded">Rounded</option>
                         <option value="circle">Circle</option>
                     </select>
+                </div>
+                <div className="form-group">
+                    <label>Button Background Color:</label>
+                    <input
+                        type="color"
+                        value={settings.buttonBgColor}
+                        onChange={handleBgColorChange}
+                    />
                 </div>
                 <div className="form-group">
                     <label>Button Color:</label>
