@@ -51,6 +51,14 @@ function social_share_get_settings() {
     wp_send_json_success($settings);
 }
 
+add_action('wp_ajax_get_current_active_post_type', 'get_current_active_post_type');
+function get_current_active_post_type() {
+    check_ajax_referer('social_share_nonce', 'nonce');
+    $post_types = get_post_types( array( 'public' => true ), 'names' );
+    $post_type_array = array_values($post_types);
+    wp_send_json_success($post_type_array);
+}
+
 require_once plugin_dir_path( __FILE__ ) . 'class-social-share.php';
 
 add_action('wp_head', function() {

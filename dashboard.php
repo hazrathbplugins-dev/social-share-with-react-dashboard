@@ -33,6 +33,14 @@ class DashboardFunction {
                 [],
                 '6.4.0'
             );
+            wp_localize_script(
+                'bptb-admin-setting',
+                'socialShareOptionSettings',
+                [
+                    'ajax_url' => admin_url('ajax.php'),
+                    'nonce' => wp_create_nonce('social_share_nonce'),
+                ]
+            );
         }
         
     }
