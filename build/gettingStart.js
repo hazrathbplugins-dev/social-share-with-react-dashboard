@@ -22606,7 +22606,7 @@ function App() {
   });
   console.log(settings);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "App"
+    className: "App wrap"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "dashboard-wrapper"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -22802,6 +22802,8 @@ const Customization = ({
     ...provided.dragHandleProps,
     className: "platform-item"
   }, platform.charAt(0).toUpperCase() + platform.slice(1)))), provided.placeholder)))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "grid-column-wrapper"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "form-group"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Button Type:"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "button-type-options"
@@ -22819,7 +22821,7 @@ const Customization = ({
     className: "fab fa-facebook-f"
   })))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "form-group"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Button Type:"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Button Layout:"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "button-type-options"
   }, ['horizontal', 'vertical'].map(type => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     key: type,
@@ -22844,7 +22846,9 @@ const Customization = ({
     value: "rounded"
   }, "Rounded"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
     value: "circle"
-  }, "Circle"))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, "Circle")))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "grid-column-wrapper"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "form-group"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Button Background Color:"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
     type: "color",
@@ -22867,7 +22871,7 @@ const Customization = ({
     value: "medium"
   }, "Medium"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
     value: "large"
-  }, "Large"))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+  }, "Large")))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     onClick: saveSettings
   }, "Save Settings")));
 };

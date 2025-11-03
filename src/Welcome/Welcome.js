@@ -4,7 +4,6 @@ import './welcome.scss';
 
 document.addEventListener('DOMContentLoaded', () => {
     const welcomePageWrapper = document.getElementById("welcomeSettingsWrapper");
-    console.log('yah');
     
     if ( welcomePageWrapper ) {
         createRoot(welcomePageWrapper).render(<App />);

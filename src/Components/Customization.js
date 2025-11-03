@@ -5,7 +5,7 @@ const Customization = ({ settings, setSettings }) => {
     const availablePlatforms = ['facebook', 'twitter', 'linkedin', 'pinterest'].filter(
         (platform) => !settings.platforms.includes(platform)
     );
-    
+
     // Handle drag end for both selection and reordering
     const onDragEnd = (result) => {
         const { source, destination } = result;
@@ -46,7 +46,7 @@ const Customization = ({ settings, setSettings }) => {
     };
 
     const handleColorChange = (e) => {
-        setSettings((prev) => ({...prev, buttonColor: e.target.value}));
+        setSettings((prev) => ({ ...prev, buttonColor: e.target.value }));
     }
 
     const handleSizeChange = (e) => {
@@ -155,89 +155,93 @@ const Customization = ({ settings, setSettings }) => {
                         </div>
                     </DragDropContext>
                 </div>
-                <div className="form-group">
-                    <label>Button Type:</label>
-                    <div className="button-type-options">
-                        {['text', 'icon-text', 'icon'].map((type) => (
-                            <div
-                                key={type}
-                                className={`button-type-option ${settings.buttonType === type ? 'selected' : ''}`}
-                                onClick={() => handleButtonTypeChange(type)}
-                            >
-                                {type === 'text' && 'Text'}
-                                {type === 'icon-text' && (
-                                    <>
+                <div className="grid-column-wrapper">
+                    <div className="form-group">
+                        <label>Button Type:</label>
+                        <div className="button-type-options">
+                            {['text', 'icon-text', 'icon'].map((type) => (
+                                <div
+                                    key={type}
+                                    className={`button-type-option ${settings.buttonType === type ? 'selected' : ''}`}
+                                    onClick={() => handleButtonTypeChange(type)}
+                                >
+                                    {type === 'text' && 'Text'}
+                                    {type === 'icon-text' && (
+                                        <>
+                                            <span className="button-icon">
+                                                <i className="fab fa-facebook-f"></i>
+                                            </span>
+                                            Text
+                                        </>
+                                    )}
+                                    {type === 'icon' && (
                                         <span className="button-icon">
                                             <i className="fab fa-facebook-f"></i>
                                         </span>
-                                        Text
-                                    </>
-                                )}
-                                {type === 'icon' && (
-                                    <span className="button-icon">
-                                        <i className="fab fa-facebook-f"></i>
-                                    </span>
-                                )}
-                            </div>
-                        ))}
+                                    )}
+                                </div>
+                            ))}
+                        </div>
                     </div>
-                </div>
-                <div className="form-group">
-                    <label>Button Type:</label>
-                    <div className="button-type-options">
-                        {['horizontal', 'vertical',].map((type) => (
-                            <div
-                                key={type}
-                                className={`button-type-option ${settings.buttonLayout === type ? 'selected' : ''}`}
-                                onClick={() => handleButtonLayoutChange(type)}
-                            >
-                                {type === 'horizontal' && (
-                                    <>
+                    <div className="form-group">
+                        <label>Button Layout:</label>
+                        <div className="button-type-options">
+                            {['horizontal', 'vertical',].map((type) => (
+                                <div
+                                    key={type}
+                                    className={`button-type-option ${settings.buttonLayout === type ? 'selected' : ''}`}
+                                    onClick={() => handleButtonLayoutChange(type)}
+                                >
+                                    {type === 'horizontal' && (
+                                        <>
+                                            <span className="button-icon">
+                                                <i class="fa-solid fa-ellipsis"></i>
+                                            </span>
+                                        </>
+                                    )}
+                                    {type === 'vertical' && (
                                         <span className="button-icon">
-                                            <i class="fa-solid fa-ellipsis"></i>
+                                            <i class="fa-solid fa-ellipsis-vertical"></i>
                                         </span>
-                                    </>
-                                )}
-                                {type === 'vertical' && (
-                                    <span className="button-icon">
-                                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                                    </span>
-                                )}
-                            </div>
-                        ))}
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <label>Button Style:</label>
+                        <select value={settings.buttonStyle} onChange={handleStyleChange}>
+                            <option value="square">Square</option>
+                            <option value="rounded">Rounded</option>
+                            <option value="circle">Circle</option>
+                        </select>
                     </div>
                 </div>
-                <div className="form-group">
-                    <label>Button Style:</label>
-                    <select value={settings.buttonStyle} onChange={handleStyleChange}>
-                        <option value="square">Square</option>
-                        <option value="rounded">Rounded</option>
-                        <option value="circle">Circle</option>
-                    </select>
-                </div>
-                <div className="form-group">
-                    <label>Button Background Color:</label>
-                    <input
-                        type="color"
-                        value={settings.buttonBgColor}
-                        onChange={handleBgColorChange}
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Button Color:</label>
-                    <input
-                        type="color"
-                        value={settings.buttonColor}
-                        onChange={handleColorChange}
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Button Size:</label>
-                    <select value={settings.buttonSize} onChange={handleSizeChange}>
-                        <option value="small">Small</option>
-                        <option value="medium">Medium</option>
-                        <option value="large">Large</option>
-                    </select>
+                <div className="grid-column-wrapper">
+                    <div className="form-group">
+                        <label>Button Background Color:</label>
+                        <input
+                            type="color"
+                            value={settings.buttonBgColor}
+                            onChange={handleBgColorChange}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Button Color:</label>
+                        <input
+                            type="color"
+                            value={settings.buttonColor}
+                            onChange={handleColorChange}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Button Size:</label>
+                        <select value={settings.buttonSize} onChange={handleSizeChange}>
+                            <option value="small">Small</option>
+                            <option value="medium">Medium</option>
+                            <option value="large">Large</option>
+                        </select>
+                    </div>
                 </div>
                 <button onClick={saveSettings}>Save Settings</button>
             </div>

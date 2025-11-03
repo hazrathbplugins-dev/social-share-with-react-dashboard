@@ -11,6 +11,11 @@ body {
 
 .App {
   padding: 20px;
+  .grid-column-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr;
+    gap: 20px;
+  }
 }
 
 .dashboard-wrapper {

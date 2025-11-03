@@ -6,7 +6,7 @@ import AutoShare from './AutoShare';
 function App() {
   
   return (
-    <div className="App">
+    <div className="App wrap">
       <div className='dashboard-wrapper'>
         <div className='dashboard-header'>
           <div className='icon-wrapper'><i class="fa-solid fa-wrench"></i></div>

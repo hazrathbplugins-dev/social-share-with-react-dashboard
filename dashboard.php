@@ -44,8 +44,15 @@ class DashboardFunction {
             );
         }
         if( $screen === 'reactive-dashboard_page_global-welcome-settings') {
-            wp_enqueue_script( 'bptb-welcome-setting', plugin_dir_url( __FILE__ ) . 'build/welcomePage.js', [ 'react', 'react-dom','wp-util' ], '1.0.0', true );
+            wp_enqueue_script( 'bptb-welcome-setting', plugin_dir_url( __FILE__ ) . 'build/welcomePage.js', [ 'react', 'react-dom','wp-util', 'wp-components' ], '1.0.0', true );
             wp_enqueue_style( 'bptb-welcome-style', plugin_dir_url( __FILE__ ) . 'build/welcomePage.css', [], '1.0.0' );
+            wp_enqueue_style( 'bptb-admin-style', plugin_dir_url( __FILE__ ) . 'build/style-gettingStart.css', [], '1.0.0' );
+            wp_enqueue_style(
+                'font-awesome',
+                'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
+                [],
+                '6.4.0'
+            );
         }
         
     }
