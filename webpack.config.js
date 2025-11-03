@@ -7,6 +7,7 @@ module.exports = {
         ...defaultConfig.entry(),
         gettingStart: './src/GettingStart.js',
 		settingPage: './src/SubmenuPage/Setting.js',
+		welcomePage: './src/Welcome/Welcome.js',
     },
 	plugins: [
 		...defaultConfig.plugins,

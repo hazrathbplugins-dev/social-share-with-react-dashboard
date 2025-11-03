@@ -5,6 +5,7 @@ class DashboardFunction {
     }
 
     public function enqueue_dashboard_scripts( $screen ) {
+
         if( $screen === 'toplevel_page_reactive-dashboard') {
             wp_enqueue_script( 'bptb-admin-dashboard', plugin_dir_url( __FILE__ ) . 'build/gettingStart.js', [ 'react', 'react-dom','wp-util' ], '1.0.0', true );
             wp_enqueue_style( 'bptb-admin-style', plugin_dir_url( __FILE__ ) . 'build/style-gettingStart.css', [], '1.0.0' );
@@ -41,6 +42,10 @@ class DashboardFunction {
                     'nonce' => wp_create_nonce('social_share_nonce'),
                 ]
             );
+        }
+        if( $screen === 'reactive-dashboard_page_global-welcome-settings') {
+            wp_enqueue_script( 'bptb-welcome-setting', plugin_dir_url( __FILE__ ) . 'build/welcomePage.js', [ 'react', 'react-dom','wp-util' ], '1.0.0', true );
+            wp_enqueue_style( 'bptb-welcome-style', plugin_dir_url( __FILE__ ) . 'build/welcomePage.css', [], '1.0.0' );
         }
         
     }

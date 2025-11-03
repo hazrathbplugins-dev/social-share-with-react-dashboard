@@ -1,0 +1,1 @@
+{"version":3,"file":"welcomePage.css","mappings":";;;AAAA;EACI;EACA;EACA;AACJ,C","sources":["webpack://reactive-dashboard/./src/Welcome/welcome.scss"],"sourcesContent":["* {\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\r\n}"],"names":[],"sourceRoot":""}

@@ -40,15 +40,16 @@ class AdminVoiceFeedback {
         //     [$this, 'render_all_voice_feedback_page']
         // );
 
-        // // Submenu: Global Settings
-        // add_submenu_page(
-        //     'voice-feedback',
-        //     'Voice Setting',
-        //     'Global Voice Feedback',
-        //     'manage_options',
-        //     'global-feedback-settings',
-        //     [$this, 'render_global_settings_page']
-        // );
+        // Submenu: Global Settings
+        add_submenu_page(
+            'reactive-dashboard',
+            'Welcome',
+            'Welcome',
+            'manage_options',
+            'global-welcome-settings',
+            [$this, 'render_welcome_settings_page'],
+            0
+        );
     }
 
     public function render_dashboard_page() {
@@ -75,11 +76,11 @@ class AdminVoiceFeedback {
     <?php
     }
 
-    // Start Global Voice Feedback Page
-    public function render_global_settings_page() {
+    // Start Welcome Settings Page
+    public function render_welcome_settings_page() {
       ?>
-        <div class="vfd-settings-page-wrapper" 
-           id="vfdSettingsWrapper"
+        <div class="welcome-settings-page-wrapper" 
+           id="welcomeSettingsWrapper"
            data-info='<?php echo esc_attr( wp_json_encode( [
                 // 'isPremium' => esc_attr(bplvf()->can_use_premium_code() ?? false),
                 'adminUrl' => admin_url(),
