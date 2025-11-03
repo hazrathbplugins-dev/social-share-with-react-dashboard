@@ -9490,7 +9490,7 @@ const SocialShareDashboard = () => {
     icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_6__["default"],
     href: "https://yourplugin.com/support",
     target: "_blank"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Get Support', 'social-share'))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Social Share Pro', 'social-share'), " v1.0.0 \u2022 Built with", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Get Support', 'social-share'))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Social Share', 'social-share'), " v1.0.0 \u2022 Built with", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     style: {
       color: '#d63638',
       margin: '0 4px'

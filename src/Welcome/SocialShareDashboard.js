@@ -127,7 +127,7 @@ const SocialShareDashboard = () => {
                 </div>
 
                 <p>
-                    {__('Social Share Pro', 'social-share')} v1.0.0 • Built with
+                    {__('Social Share', 'social-share')} v1.0.0 • Built with
                     <span style={{ color: '#d63638', margin: '0 4px' }}>heart</span>
                     for WordPress
                 </p>
