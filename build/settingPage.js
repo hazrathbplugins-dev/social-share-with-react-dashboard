@@ -226,47 +226,59 @@ const AutoShare = () => {
     type: "checkbox",
     checked: xAutoShareTwitter,
     onChange: e => setXAutoShareTwitter(e.target.checked)
-  }), "Enable Auto Share to Twitter"))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Linkedin Auto Share Settings"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "LinkedIn Client ID:"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+  }), "Enable Auto Share to Twitter"))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "form-group"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Linkedin Auto Share Settings"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "LinkedIn Client ID:"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
     type: "text",
+    placeholder: "Enter your LinkedIn Client ID",
     value: linkedinClientId,
     onChange: e => setLinkedinClientId(e.target.value)
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "LinkedIn Client Secret:"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
     type: "password",
+    placeholder: "Enter your LinkedIn Client Secret",
     value: linkedinClientSecret,
     onChange: e => setLinkedinClientSecret(e.target.value)
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Access Token:"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
     type: "text",
+    placeholder: "Enter Access Token",
     value: linkedinAccessToken,
     onChange: e => setLinkedinAccessToken(e.target.value)
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Company Page ID (optional):"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
     type: "text",
+    placeholder: "Enter Company Page ID",
     value: linkedinCompanyId,
     onChange: e => setLinkedinCompanyId(e.target.value)
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
     type: "checkbox",
     checked: linkedinAutoShare,
     onChange: e => setLinkedinAutoShare(e.target.checked)
-  }), "Enable Auto Share"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Pinterest Auto Share Settings"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Pinterest App ID:"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+  }), "Enable Auto Share")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "form-group"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Pinterest Auto Share Settings"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Pinterest App ID:"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
     type: "text",
+    placeholder: "Enter App ID",
     value: pinterestAppId,
     onChange: e => setPinterestAppId(e.target.value)
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Pinterest App Secret:"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
     type: "password",
+    placeholder: "Enter App Secret",
     value: pinterestAppSecret,
     onChange: e => setPinterestAppSecret(e.target.value)
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Access Token:"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
     type: "text",
+    placeholder: "Enter Access Token",
     value: pinterestAccessToken,
     onChange: e => setPinterestAccessToken(e.target.value)
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Board ID:"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
     type: "text",
+    placeholder: "Enter Brand ID",
     value: pinterestBoardId,
     onChange: e => setPinterestBoardId(e.target.value)
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
     type: "checkbox",
     checked: pinterestAutoShare,
     onChange: e => setPinterestAutoShare(e.target.checked)
-  }), "Enable Auto Share"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+  }), "Enable Auto Share")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     className: "btn btn-primary",
     style: {
       marginTop: '15px'

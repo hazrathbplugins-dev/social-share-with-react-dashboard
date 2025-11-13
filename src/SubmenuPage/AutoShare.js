@@ -152,40 +152,44 @@ const AutoShare = () => {
                         </label>
                     </div>
                 </div>
-                <h3>Linkedin Auto Share Settings</h3>
-                <label>LinkedIn Client ID:</label>
-                <input type="text" value={linkedinClientId} onChange={e => setLinkedinClientId(e.target.value)} />
+                <div className="form-group">
+                    <h3>Linkedin Auto Share Settings</h3>
+                    <label>LinkedIn Client ID:</label>
+                    <input type="text" placeholder="Enter your LinkedIn Client ID" value={linkedinClientId} onChange={e => setLinkedinClientId(e.target.value)} />
 
-                <label>LinkedIn Client Secret:</label>
-                <input type="password" value={linkedinClientSecret} onChange={e => setLinkedinClientSecret(e.target.value)} />
+                    <label>LinkedIn Client Secret:</label>
+                    <input type="password" placeholder="Enter your LinkedIn Client Secret" value={linkedinClientSecret} onChange={e => setLinkedinClientSecret(e.target.value)} />
 
-                <label>Access Token:</label>
-                <input type="text" value={linkedinAccessToken} onChange={e => setLinkedinAccessToken(e.target.value)} />
+                    <label>Access Token:</label>
+                    <input type="text" placeholder="Enter Access Token" value={linkedinAccessToken} onChange={e => setLinkedinAccessToken(e.target.value)} />
 
-                <label>Company Page ID (optional):</label>
-                <input type="text" value={linkedinCompanyId} onChange={e => setLinkedinCompanyId(e.target.value)} />
+                    <label>Company Page ID (optional):</label>
+                    <input type="text" placeholder="Enter Company Page ID" value={linkedinCompanyId} onChange={e => setLinkedinCompanyId(e.target.value)} />
 
-                <label>
-                    <input type="checkbox" checked={linkedinAutoShare} onChange={e => setLinkedinAutoShare(e.target.checked)} />
-                    Enable Auto Share
-                </label>
-                <h3>Pinterest Auto Share Settings</h3>
-                <label>Pinterest App ID:</label>
-                <input type="text" value={pinterestAppId} onChange={e => setPinterestAppId(e.target.value)} />
+                    <label>
+                        <input type="checkbox" checked={linkedinAutoShare} onChange={e => setLinkedinAutoShare(e.target.checked)} />
+                        Enable Auto Share
+                    </label>
+                </div>
+                <div className="form-group">
+                    <h3>Pinterest Auto Share Settings</h3>
+                    <label>Pinterest App ID:</label>
+                    <input type="text" placeholder="Enter App ID" value={pinterestAppId} onChange={e => setPinterestAppId(e.target.value)} />
 
-                <label>Pinterest App Secret:</label>
-                <input type="password" value={pinterestAppSecret} onChange={e => setPinterestAppSecret(e.target.value)} />
+                    <label>Pinterest App Secret:</label>
+                    <input type="password" placeholder="Enter App Secret" value={pinterestAppSecret} onChange={e => setPinterestAppSecret(e.target.value)} />
 
-                <label>Access Token:</label>
-                <input type="text" value={pinterestAccessToken} onChange={e => setPinterestAccessToken(e.target.value)} />
+                    <label>Access Token:</label>
+                    <input type="text" placeholder="Enter Access Token" value={pinterestAccessToken} onChange={e => setPinterestAccessToken(e.target.value)} />
 
-                <label>Board ID:</label>
-                <input type="text" value={pinterestBoardId} onChange={e => setPinterestBoardId(e.target.value)} />
+                    <label>Board ID:</label>
+                    <input type="text" placeholder="Enter Brand ID" value={pinterestBoardId} onChange={e => setPinterestBoardId(e.target.value)} />
 
-                <label>
-                    <input type="checkbox" checked={pinterestAutoShare} onChange={e => setPinterestAutoShare(e.target.checked)} />
-                    Enable Auto Share
-                </label>
+                    <label>
+                        <input type="checkbox" checked={pinterestAutoShare} onChange={e => setPinterestAutoShare(e.target.checked)} />
+                        Enable Auto Share
+                    </label>
+                </div>
                 <button className="btn btn-primary" style={{ marginTop: '15px' }}>
                     Save Settings
                 </button>
