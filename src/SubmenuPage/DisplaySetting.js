@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 
 const DisplaySetting = () => {
-    const [postTypes, setPostTypes] = useState([]);
+    const [postTypes, setPostTypes] = useState(['post']);
     const [selectedPostType, setSelectedPostType] = useState([]);
     const [displayCondition, setDisplayCondition] = useState('');
     const [buttonAlignment, setButtonAlignment] = useState('left');
+    const [saving, setSaving] = useState(false);
 
     const availableCondition = [
         { value: 'before_title', label: 'Before Title' },
@@ -16,6 +17,22 @@ const DisplaySetting = () => {
     ];
 
     useEffect(() => {
+        fetch(ajaxurl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams({
+                action: 'social_share_get_display_settings',
+                nonce: window.socialShareOptionSettings.nonce,
+            })
+        })
+        .then(r => r.json())
+        .then(data => {
+            if (data.success) {
+                setSelectedPostType(data.data.post_types || []);
+                setDisplayCondition(data.data.display_position || 'after_content');
+                setButtonAlignment(data.data.alignment || 'center');
+            }
+        });
         fetch(
             ajaxurl,
             {
@@ -49,6 +66,30 @@ const DisplaySetting = () => {
     const handleDisplayPositionChange = (e) => {
         setDisplayCondition(e.target.value);
         console.log('Selected display Condition:', e.target.value);
+    };
+
+    // Save Settings Function
+    const handleSave = () => {
+        setSaving(true);
+
+        fetch(ajaxurl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams({
+                action: 'social_share_save_display_settings',
+                nonce: window.socialShareOptionSettings.nonce,
+                post_types: JSON.stringify(selectedPostType),
+                display_position: displayCondition,
+                alignment: buttonAlignment,
+            })
+        })
+            .then(r => r.json())
+            .then(data => {
+                setSaving(false);
+            })
+            .catch(() => {
+                setSaving(false);
+            });
     };
 
     return (
@@ -101,8 +142,13 @@ const DisplaySetting = () => {
                         ))}
                     </div>
                 </div>
-                <button className="btn btn-primary" style={{ marginTop: '15px' }}>
-                    Save Settings
+                <button
+                    className="btn btn-primary"
+                    onClick={handleSave}
+                    disabled={saving}
+                    style={{ marginTop: '15px' }}
+                >
+                    {saving ? 'Saving...' : 'Save Settings'}
                 </button>
             </div>
 

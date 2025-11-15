@@ -59,6 +59,65 @@ function get_current_active_post_type() {
     wp_send_json_success($post_type_array);
 }
 
+// 1. Get saved settings
+add_action('wp_ajax_social_share_get_display_settings', 'social_share_get_display_settings');
+function social_share_get_display_settings() {
+    check_ajax_referer('social_share_nonce', 'nonce');
+
+    $defaults = [
+        'post_types' => ['post'],
+        'display_position' => 'after_content',
+        'alignment' => 'center'
+    ];
+
+    $settings = get_option('social_share_display_settings', $defaults);
+
+    wp_send_json_success($settings);
+}
+
+// 2. Save settings
+add_action('wp_ajax_social_share_save_display_settings', 'social_share_save_display_settings');
+function social_share_save_display_settings() {
+    check_ajax_referer('social_share_nonce', 'nonce');
+
+    $post_types = isset($_POST['post_types']) ? json_decode(stripslashes($_POST['post_types']), true) : [];
+    $position   = sanitize_text_field($_POST['display_position'] ?? 'after_content');
+    $alignment  = sanitize_text_field($_POST['alignment'] ?? 'center');
+
+    $settings = [
+        'post_types'       => array_map('sanitize_text_field', $post_types),
+        'display_position' => $position,
+        'alignment'        => $alignment
+    ];
+
+    update_option('social_share_display_settings', $settings);
+
+    wp_send_json_success('Settings saved!');
+}
+
+function social_share_get_display_default_settings() {
+    $defaults = [
+        'post_types'       => ['post'],           // Default: only "post"
+        'display_position' => 'after_content',    // Default position
+        'alignment'        => 'center'            // Default alignment
+    ];
+
+    $settings = get_option('social_share_display_settings', $defaults);
+
+    // Ensure post_types is always an array (safety)
+    if (!is_array($settings['post_types'])) {
+        $settings['post_types'] = ['post'];
+    }
+
+    // Ensure position has a valid value
+    $valid_positions = ['before_title', 'after_title', 'before_content', 'after_content', 'footer', 'stick'];
+    if (!in_array($settings['display_position'], $valid_positions)) {
+        $settings['display_position'] = 'after_content';
+    }
+
+    return $settings;
+}
+
 require_once plugin_dir_path( __FILE__ ) . 'class-social-share.php';
 
 add_action('wp_head', function() {

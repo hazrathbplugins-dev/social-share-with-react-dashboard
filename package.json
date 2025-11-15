@@ -24,6 +24,7 @@
     "@wordpress/element": "^6.0.0",
     "@wordpress/i18n": "^5.0.0",
     "@wordpress/icons": "^11.1.0",
-    "react-beautiful-dnd": "^13.1.1"
+    "react-beautiful-dnd": "^13.1.1",
+    "react-hot-toast": "^2.6.0"
   }
 }

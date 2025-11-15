@@ -52,43 +52,44 @@ const AutoShare = () => {
                         Automatically share posts to connected social accounts when published.
                     </small>
                 </div>
-                <div className="form-group">
-                    <h3>Facebook Auto Share Settings</h3>
+                <div className="custom-grid-column-wrapper">
+                    <div className="form-group">
+                        <h3>Facebook Auto Share Settings</h3>
 
-                    <label>Facebook App ID:</label>
-                    <input
-                        type="text"
-                        value={fbAppId}
-                        onChange={(e) => setFbAppId(e.target.value)}
-                        placeholder="Enter your Facebook App ID"
-                    />
+                        <label>Facebook App ID:</label>
+                        <input
+                            type="text"
+                            value={fbAppId}
+                            onChange={(e) => setFbAppId(e.target.value)}
+                            placeholder="Enter your Facebook App ID"
+                        />
 
-                    <label>Facebook App Secret:</label>
-                    <input
-                        type="password"
-                        value={fbAppSecret}
-                        onChange={(e) => setFbAppSecret(e.target.value)}
-                        placeholder="Enter your Facebook App Secret"
-                    />
+                        <label>Facebook App Secret:</label>
+                        <input
+                            type="password"
+                            value={fbAppSecret}
+                            onChange={(e) => setFbAppSecret(e.target.value)}
+                            placeholder="Enter your Facebook App Secret"
+                        />
 
-                    <label>Access Token:</label>
-                    <input
-                        type="text"
-                        value={fbAccessToken}
-                        onChange={(e) => setFbAccessToken(e.target.value)}
-                        placeholder="Enter a valid Access Token"
-                    />
+                        <label>Access Token:</label>
+                        <input
+                            type="text"
+                            value={fbAccessToken}
+                            onChange={(e) => setFbAccessToken(e.target.value)}
+                            placeholder="Enter a valid Access Token"
+                        />
 
-                    <label>Page ID (optional):</label>
-                    <input
-                        type="text"
-                        value={fbPageId}
-                        onChange={(e) => setFbPageId(e.target.value)}
-                        placeholder="Enter Facebook Page ID"
-                    />
+                        <label>Page ID (optional):</label>
+                        <input
+                            type="text"
+                            value={fbPageId}
+                            onChange={(e) => setFbPageId(e.target.value)}
+                            placeholder="Enter Facebook Page ID"
+                        />
 
-                    <div style={{ marginTop: '10px' }}>
-                        <label style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+
+                        <label>
                             <input
                                 type="checkbox"
                                 checked={autoShareFacebook}
@@ -96,53 +97,52 @@ const AutoShare = () => {
                             />
                             Enable Auto Share to Facebook
                         </label>
+
                     </div>
-                </div>
-                <div className="form-group">
-                    <h3>Twitter (X) Auto Share Settings</h3>
+                    <div className="form-group">
+                        <h3>Twitter (X) Auto Share Settings</h3>
 
-                    <label>API Key (Consumer Key):</label>
-                    <input
-                        type="text"
-                        value={xApiKey}
-                        onChange={(e) => setXApiKey(e.target.value)}
-                        placeholder="Enter your Twitter API Key"
-                    />
+                        <label>API Key (Consumer Key):</label>
+                        <input
+                            type="text"
+                            value={xApiKey}
+                            onChange={(e) => setXApiKey(e.target.value)}
+                            placeholder="Enter your Twitter API Key"
+                        />
 
-                    <label>API Secret Key (Consumer Secret):</label>
-                    <input
-                        type="password"
-                        value={xApiSecret}
-                        onChange={(e) => setXApiSecret(e.target.value)}
-                        placeholder="Enter your API Secret Key"
-                    />
+                        <label>API Secret Key (Consumer Secret):</label>
+                        <input
+                            type="password"
+                            value={xApiSecret}
+                            onChange={(e) => setXApiSecret(e.target.value)}
+                            placeholder="Enter your API Secret Key"
+                        />
 
-                    <label>Access Token:</label>
-                    <input
-                        type="text"
-                        value={xAccessToken}
-                        onChange={(e) => setXAccessToken(e.target.value)}
-                        placeholder="Enter Access Token"
-                    />
+                        <label>Access Token:</label>
+                        <input
+                            type="text"
+                            value={xAccessToken}
+                            onChange={(e) => setXAccessToken(e.target.value)}
+                            placeholder="Enter Access Token"
+                        />
 
-                    <label>Access Token Secret:</label>
-                    <input
-                        type="password"
-                        value={xAccessSecret}
-                        onChange={(e) => setXAccessSecret(e.target.value)}
-                        placeholder="Enter Access Token Secret"
-                    />
+                        <label>Access Token Secret:</label>
+                        <input
+                            type="password"
+                            value={xAccessSecret}
+                            onChange={(e) => setXAccessSecret(e.target.value)}
+                            placeholder="Enter Access Token Secret"
+                        />
 
-                    <label>Bearer Token (optional):</label>
-                    <input
-                        type="text"
-                        value={bearerToken}
-                        onChange={(e) => setBearerToken(e.target.value)}
-                        placeholder="Enter Bearer Token"
-                    />
+                        <label>Bearer Token (optional):</label>
+                        <input
+                            type="text"
+                            value={bearerToken}
+                            onChange={(e) => setBearerToken(e.target.value)}
+                            placeholder="Enter Bearer Token"
+                        />
 
-                    <div style={{ marginTop: '10px' }}>
-                        <label style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                        <label>
                             <input
                                 type="checkbox"
                                 checked={xAutoShareTwitter}
@@ -152,43 +152,45 @@ const AutoShare = () => {
                         </label>
                     </div>
                 </div>
-                <div className="form-group">
-                    <h3>Linkedin Auto Share Settings</h3>
-                    <label>LinkedIn Client ID:</label>
-                    <input type="text" placeholder="Enter your LinkedIn Client ID" value={linkedinClientId} onChange={e => setLinkedinClientId(e.target.value)} />
+                <div className="custom-grid-column-wrapper">
+                    <div className="form-group">
+                        <h3>Linkedin Auto Share Settings</h3>
+                        <label>LinkedIn Client ID:</label>
+                        <input type="text" placeholder="Enter your LinkedIn Client ID" value={linkedinClientId} onChange={e => setLinkedinClientId(e.target.value)} />
 
-                    <label>LinkedIn Client Secret:</label>
-                    <input type="password" placeholder="Enter your LinkedIn Client Secret" value={linkedinClientSecret} onChange={e => setLinkedinClientSecret(e.target.value)} />
+                        <label>LinkedIn Client Secret:</label>
+                        <input type="password" placeholder="Enter your LinkedIn Client Secret" value={linkedinClientSecret} onChange={e => setLinkedinClientSecret(e.target.value)} />
 
-                    <label>Access Token:</label>
-                    <input type="text" placeholder="Enter Access Token" value={linkedinAccessToken} onChange={e => setLinkedinAccessToken(e.target.value)} />
+                        <label>Access Token:</label>
+                        <input type="text" placeholder="Enter Access Token" value={linkedinAccessToken} onChange={e => setLinkedinAccessToken(e.target.value)} />
 
-                    <label>Company Page ID (optional):</label>
-                    <input type="text" placeholder="Enter Company Page ID" value={linkedinCompanyId} onChange={e => setLinkedinCompanyId(e.target.value)} />
+                        <label>Company Page ID (optional):</label>
+                        <input type="text" placeholder="Enter Company Page ID" value={linkedinCompanyId} onChange={e => setLinkedinCompanyId(e.target.value)} />
 
-                    <label>
-                        <input type="checkbox" checked={linkedinAutoShare} onChange={e => setLinkedinAutoShare(e.target.checked)} />
-                        Enable Auto Share
-                    </label>
-                </div>
-                <div className="form-group">
-                    <h3>Pinterest Auto Share Settings</h3>
-                    <label>Pinterest App ID:</label>
-                    <input type="text" placeholder="Enter App ID" value={pinterestAppId} onChange={e => setPinterestAppId(e.target.value)} />
+                        <label>
+                            <input type="checkbox" checked={linkedinAutoShare} onChange={e => setLinkedinAutoShare(e.target.checked)} />
+                            Enable Auto Share
+                        </label>
+                    </div>
+                    <div className="form-group">
+                        <h3>Pinterest Auto Share Settings</h3>
+                        <label>Pinterest App ID:</label>
+                        <input type="text" placeholder="Enter App ID" value={pinterestAppId} onChange={e => setPinterestAppId(e.target.value)} />
 
-                    <label>Pinterest App Secret:</label>
-                    <input type="password" placeholder="Enter App Secret" value={pinterestAppSecret} onChange={e => setPinterestAppSecret(e.target.value)} />
+                        <label>Pinterest App Secret:</label>
+                        <input type="password" placeholder="Enter App Secret" value={pinterestAppSecret} onChange={e => setPinterestAppSecret(e.target.value)} />
 
-                    <label>Access Token:</label>
-                    <input type="text" placeholder="Enter Access Token" value={pinterestAccessToken} onChange={e => setPinterestAccessToken(e.target.value)} />
+                        <label>Access Token:</label>
+                        <input type="text" placeholder="Enter Access Token" value={pinterestAccessToken} onChange={e => setPinterestAccessToken(e.target.value)} />
 
-                    <label>Board ID:</label>
-                    <input type="text" placeholder="Enter Brand ID" value={pinterestBoardId} onChange={e => setPinterestBoardId(e.target.value)} />
+                        <label>Board ID:</label>
+                        <input type="text" placeholder="Enter Brand ID" value={pinterestBoardId} onChange={e => setPinterestBoardId(e.target.value)} />
 
-                    <label>
-                        <input type="checkbox" checked={pinterestAutoShare} onChange={e => setPinterestAutoShare(e.target.checked)} />
-                        Enable Auto Share
-                    </label>
+                        <label>
+                            <input type="checkbox" checked={pinterestAutoShare} onChange={e => setPinterestAutoShare(e.target.checked)} />
+                            Enable Auto Share
+                        </label>
+                    </div>
                 </div>
                 <button className="btn btn-primary" style={{ marginTop: '15px' }}>
                     Save Settings
